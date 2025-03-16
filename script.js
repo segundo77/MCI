@@ -1,3 +1,7 @@
+function isMobile() {
+    return /Android|iPhone|iPad|iPod|BlackBerry|Windows Phone|webOS/i.test(navigator.userAgent);
+}
+
 document.getElementById("botonEnviar").addEventListener("click", iniciarSesion);
 
 // Si los usuarios no existen en localStorage, guardarlos
