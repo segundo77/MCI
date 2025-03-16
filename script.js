@@ -1,7 +1,3 @@
-function isMobile() {
-    return /Android|iPhone|iPad|iPod|BlackBerry|Windows Phone|webOS/i.test(navigator.userAgent);
-}
-
 document.getElementById("botonEnviar").addEventListener("click", iniciarSesion);
 
 // Si los usuarios no existen en localStorage, guardarlos
@@ -29,9 +25,10 @@ function iniciarSesion(event) {
 
 
     // Verifica si el usuario existe y si la contraseña es correcta
+   // Verifica si el usuario existe y si la contraseña es correcta
     if (usuarios[usuario] && atob(usuarios[usuario]) === contraseña) {
         // Detecta si el usuario está en un dispositivo móvil
-        if (isMobile()) {
+        if (/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone|webOS/i.test(navigator.userAgent)) {
             // Redirige a la app de Google Sheets si está en un móvil
             window.location.href = "googlesheets://docs.google.com/spreadsheets/d/10mmqGMD_Zu02oQdqLbDvYMAczD9WZUM0ZOXMqRJ4iyI";
         } else {
